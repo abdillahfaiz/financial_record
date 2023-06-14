@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:financial_record/api/network_manager.dart';
 import 'package:financial_record/models/finance_models.dart';
+import 'package:financial_record/models/finance_total_models.dart';
 import 'package:financial_record/utils/form_create.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -16,8 +17,6 @@ class AddDataScreen extends StatefulWidget {
 class _AddDataScreenState extends State<AddDataScreen> {
   final titleController = TextEditingController();
   final countedController = TextEditingController();
-  String _category = '';
-
   late Future<FinanceData> futureData;
 
   @override
@@ -28,7 +27,9 @@ class _AddDataScreenState extends State<AddDataScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Pemasukan'),),
+      appBar: AppBar(
+        title: const Text('Pemasukan'),
+      ),
       body: Container(
         padding: const EdgeInsets.all(10),
         child: Column(
