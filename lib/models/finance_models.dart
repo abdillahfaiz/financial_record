@@ -8,10 +8,8 @@ class FinanceData {
   factory FinanceData.fromJson(Map<String, dynamic> json) {
     return FinanceData(
         financeData: List<FinanceModel>.from(
-                json["data"].map((e) => FinanceModel.fromJson(e))) ??
-            []);
+            json["data"].map((e) => FinanceModel.fromJson(e))));
   }
-
 
   @override
   String toString() => 'FinanceData(financeData: $financeData)';

@@ -1,7 +1,7 @@
-import 'package:financial_record/pages/add_data_screen.dart';
+import 'package:financial_record/pages/expense_page.dart';
+import 'package:financial_record/pages/income_page.dart';
 import 'package:financial_record/pages/home_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(const MyApp());
@@ -21,9 +21,10 @@ class MyApp extends StatelessWidget {
       ),
       routes: {
         '/' : (context) => const DashboardScreen(),
-        '/add-data' :(context) => const AddDataScreen()
+        '/income-data' :(context) => const AddDataScreen(),
+        '/expense-data' :(context) => const ExpenseScreen()
       },
-      // home: const DashboardScreen(),
+      // home: const IncomeScreen(),
     );
   }
 }

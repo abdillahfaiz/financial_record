@@ -1,28 +1,10 @@
 import 'dart:convert';
 
+import 'package:financial_record/api/network_manager.dart';
 import 'package:financial_record/models/finance_models.dart';
 import 'package:financial_record/utils/form_create.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-
-Future<FinanceData> createData(
-    String title, int counted, String category) async {
-  // return  = await http.post(Uri.parse('http://127.0.0.1:8000/api/create'),
-
-  final response = await http.post(
-      Uri.parse('http://127.0.0.1:8000/api/create'),
-      body: jsonEncode(<String, dynamic>{
-        'title': title,
-        'counted': counted,
-        'category': category
-      }));
-
-  if (response.statusCode == 201) {
-    return FinanceData.fromJson(jsonDecode(response.body));
-  } else {
-    throw Exception('Failed to create data');
-  }
-}
 
 class AddDataScreen extends StatefulWidget {
   const AddDataScreen({super.key});
@@ -35,9 +17,18 @@ class _AddDataScreenState extends State<AddDataScreen> {
   final titleController = TextEditingController();
   final countedController = TextEditingController();
   String _category = '';
+
+  late Future<FinanceData> futureData;
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(title: const Text('Pemasukan'),),
       body: Container(
         padding: const EdgeInsets.all(10),
         child: Column(
@@ -53,32 +44,6 @@ class _AddDataScreenState extends State<AddDataScreen> {
               hintText: 'Terbilang',
               typeInput: TextInputType.number,
             ),
-            Container(
-              width: double.infinity,
-              child: Column(
-                children: [
-                  // RadioListTile(value: value, groupValue: groupValue, onChanged: onChanged)
-                  RadioListTile(
-                      title: const Text('Pemasukan'),
-                      value: 'income',
-                      groupValue: _category,
-                      onChanged: (value) {
-                        setState(() {
-                          _category = value!;
-                        });
-                      }),
-                  RadioListTile(
-                      title: const Text('Pengeluaran'),
-                      value: 'expense',
-                      groupValue: _category,
-                      onChanged: (value) {
-                        setState(() {
-                          _category = value!;
-                        });
-                      }),
-                ],
-              ),
-            ),
             Row(
               children: [
                 TextButton(
@@ -93,8 +58,12 @@ class _AddDataScreenState extends State<AddDataScreen> {
                     )),
                 TextButton(
                     onPressed: () {
-                      createData(titleController.text,
-                          int.parse(countedController.text), _category);
+                      setState(() {
+                        futureData = NetworkManager().createData(
+                            titleController.text,
+                            int.parse(countedController.text),
+                            'income');
+                      });
                       Navigator.pop(context);
                     },
                     child: const Text(
