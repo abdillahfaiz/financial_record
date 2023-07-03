@@ -8,6 +8,8 @@ class CardHistory extends StatelessWidget {
   String textSubTitle;
   String textCounted;
   Color color;
+  Color colorCircle;
+  Icon icon;
 
   CardHistory({
     Key? key,
@@ -15,11 +17,20 @@ class CardHistory extends StatelessWidget {
     required this.textSubTitle,
     required this.textCounted,
     required this.color,
+    required this.colorCircle,
+    required this.icon,
   }) : super(key: key);
+
+
+ 
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      leading: CircleAvatar(
+        backgroundColor: color,
+        child: icon,
+      ),
       title: Text(
         textTitle,
         style: GoogleFonts.urbanist(

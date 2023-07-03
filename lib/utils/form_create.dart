@@ -15,10 +15,22 @@ class FormCreateData extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
-      controller: formController,
-      decoration: InputDecoration(hintText: hintText),
-      keyboardType: typeInput,
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 15),
+      decoration: BoxDecoration(
+        color: const Color(0xff212436),
+        borderRadius: BorderRadius.circular(5)
+      ),
+      child: TextField(
+        style: const TextStyle(color: Colors.white,),
+        controller: formController,
+        decoration: InputDecoration(
+          hintText: hintText,
+          hintStyle: const TextStyle(color: Colors.white, fontWeight: FontWeight.w400),
+          border: InputBorder.none,
+        ),
+        keyboardType: typeInput,
+      ),
     );
   }
 }

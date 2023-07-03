@@ -1,5 +1,3 @@
-import 'package:financial_record/pages/expense_page.dart';
-import 'package:financial_record/pages/income_page.dart';
 import 'package:financial_record/pages/home_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -20,11 +18,8 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       routes: {
-        '/' : (context) => const DashboardScreen(),
-        '/income-data' :(context) => const AddDataScreen(),
-        '/expense-data' :(context) => const ExpenseScreen()
+        '/': (context) => const DashboardScreen(),
       },
-      // home: const IncomeScreen(),
     );
   }
 }

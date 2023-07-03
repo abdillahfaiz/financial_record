@@ -35,7 +35,7 @@ class AppBarCustom extends StatelessWidget {
           children: [
             const CircleAvatar(
               backgroundImage: NetworkImage(
-                  'https://media.licdn.com/dms/image/C5603AQGapBlxJ88m0w/profile-displayphoto-shrink_800_800/0/1660779441034?e=2147483647&v=beta&t=P_VI22y4wyi_xphcg4XQTmez3Mfn0EXE_mjOCJXqmb8'),
+                  'https://media.licdn.com/dms/image/D5603AQH5gy-xVkQCrA/profile-displayphoto-shrink_800_800/0/1687690604147?e=2147483647&v=beta&t=7tEsKJvKT9WnGODoXYY7DIUEtFuegG5hSJHWNEmCnS4'),
             ),
             const SizedBox(
               width: 10.0,

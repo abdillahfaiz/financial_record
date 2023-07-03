@@ -12,23 +12,23 @@ class HistoryFinanceTitle extends StatelessWidget {
           child: Container(
             height: 47,
             decoration: BoxDecoration(
-              color: Color(0xff212436),
+              color: const Color(0xff212436),
               borderRadius: BorderRadius.circular(100),
             ),
           ),
         ),
         Positioned(
           child: Container(
-            margin: EdgeInsets.symmetric(horizontal: 7, vertical: 4),
+            margin: const EdgeInsets.symmetric(horizontal: 7, vertical: 4),
             height: 39,
             decoration: BoxDecoration(
-              color: Color(0xff3B3F58),
+              color: const Color(0xff3B3F58),
               borderRadius: BorderRadius.circular(100),
             ),
           ),
         ),
         Container(
-          margin: EdgeInsets.only(top: 13),
+          margin: const EdgeInsets.only(top: 13),
           child: Center(
             child: Text(
               'History Catatan Keuangan',
